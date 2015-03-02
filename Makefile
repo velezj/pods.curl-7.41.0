@@ -41,7 +41,7 @@ configure: curl-7.41.0/CMakeLists.txt
 		   -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) ..
 
 
-curl-7.31.0/CMakeLists.txt : curl-fetch-and-make
+curl-7.41.0/CMakeLists.txt : curl-fetch-and-make
 	@echo "\n Fetched cURL \n"
 
 curl-fetch-and-make:
