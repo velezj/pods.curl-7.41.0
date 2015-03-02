@@ -1,6 +1,6 @@
 # Default pod makefile distributed with pods version: 12.09.21
 
-default_target: all
+#default_target: all
 
 # Default to a less-verbose build.  If you want all the gory compiler output,
 # run "make VERBOSE=1"
@@ -36,9 +36,10 @@ configure: curl-7.41.0/CMakeLists.txt
 	# create the temporary build directory if needed
 	@mkdir -p pod-build
 
-	# run CMake to generate and configure the build scripts
-	@cd pod-build && cmake -DCMAKE_INSTALL_PREFIX=$(BUILD_PREFIX) \
-		   -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) ..
+	# # run CMake to generate and configure the build scripts
+	# @cd pod-build && cmake -DCMAKE_INSTALL_PREFIX=$(BUILD_PREFIX) \
+	# 	   -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) ..
+	cd pod-build && ../curl-7.41.0/configure --prefix=$(BUILD_PREFIX) --enable-optimize --enable-debug
 
 
 curl-7.41.0/CMakeLists.txt : curl-fetch-and-make
